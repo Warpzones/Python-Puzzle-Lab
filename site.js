@@ -1,4 +1,4 @@
-const copy = {
+const translations = {
   fr: {
     title: "Atelier Énigmes Python — Défis de programmation", siteName: "Atelier Énigmes Python",
     mainNavigation: "Navigation principale", preferences: "Préférences d'affichage", theme: "Thème", language: "Langue",
@@ -8,9 +8,13 @@ const copy = {
     exploreProblems: "Explorer les énigmes", heroIllustration: "Exemple de problème en Python", researchNote: "CARNET DE RECHERCHE", question: "LA QUESTION", howItWorks: "Comment ça marche",
     stepChooseTitle: "Choisissez", stepChooseText: "Un thème qui vous intéresse.", stepSolveTitle: "Cherchez", stepSolveText: "Écrivez et testez votre propre solution.", stepLearnTitle: "Progressez", stepLearnText: "Consultez le raisonnement et le code.",
     challengeEyebrow: "À VOUS DE JOUER", challengeTitle: "La bibliothèque d'énigmes", challengeCaption: "Choisissez une catégorie et parcourez ses énigmes Python.",
-    problemType: "Catégorie", allTypes: "Toutes", problemNumber: "N° de l'énigme", goToProblem: "Aller", chooseByName: "Choisir par titre", randomProblem: "Énigme aléatoire", numberRange: "Saisis un numéro entre 1 et {total}.", sourceLabel: "Source :", showHint: "Indice", hintTitle: "Indice", showSolution: "Solution", solutionTitle: "Résultat", showCode: "Voir un code Python possible", reasoning: "Le raisonnement", previous: "Précédent", next: "Suivant",
+    problemType: "Catégorie", allCategories: "Toutes", problemNumber: "N° dans la catégorie", goToProblem: "Aller", chooseByName: "Choisir par titre", randomProblem: "Énigme aléatoire", numberRange: "Saisis un numéro entre 1 et {total}.",
+    modulesLabel: "Modules Python :", noModules: "Aucun module requis", importModules: "À importer :", difficultyLabel: "Difficulté", difficultyFilter: "Niveau de difficulté", allDifficulties: "Tous les niveaux",
+    difficultyThresholds: ["Très facile (≤ 10)", "Facile (10 < note ≤ 20)", "Assez facile (20 < note ≤ 30)", "Modérée (30 < note ≤ 40)", "Intermédiaire (40 < note ≤ 50)", "Assez difficile (50 < note ≤ 60)", "Difficile (60 < note ≤ 70)", "Très difficile (70 < note ≤ 80)", "Expert (80 < note ≤ 90)", "Maître (90 < note ≤ 100)"],
+    noFilteredPuzzles: "Aucune énigme dans cette tranche pour cette catégorie. Choisis un autre niveau ou une autre catégorie.",
+    sourceLabel: "Source :", showHint: "Indice", hintTitle: "Indice", showSolution: "Solution", solutionTitle: "Résultat", showCode: "Voir un code Python possible", previous: "Précédent", next: "Suivant",
     methodNote: "CONSEIL", methodTitle: "Résoudre pas à pas", understand: "Comprendre", understandText: "Repérez les règles et le résultat attendu.", breakDown: "Découper", breakDownText: "Transformez le problème en étapes.", test: "Vérifier", testText: "Testez votre code sur des exemples.",
-    mistakeIsClue: "Une erreur est une piste.", footerLine: "Un problème à la fois. Une ligne de code à la fois.", backHome: "Retour à l'accueil ↑", count: "ÉNIGME {current} / {total}",
+    mistakeIsClue: "Une erreur est une piste.", footerLine: "Un problème à la fois. Une ligne de code à la fois.", backHome: "Retour à l'accueil ↑", puzzleCount: "ÉNIGME {current} / {total}",
   },
   en: {
     title: "Python Puzzle Lab — Programming Challenges", siteName: "Python Puzzle Lab",
@@ -21,182 +25,281 @@ const copy = {
     exploreProblems: "Explore puzzles", heroIllustration: "Example of a Python problem", researchNote: "WORKING NOTES", question: "THE QUESTION", howItWorks: "How it works",
     stepChooseTitle: "Choose", stepChooseText: "A topic that interests you.", stepSolveTitle: "Solve", stepSolveText: "Write and test your own solution.", stepLearnTitle: "Learn", stepLearnText: "Review the reasoning and code.",
     challengeEyebrow: "YOUR TURN", challengeTitle: "The puzzle library", challengeCaption: "Choose a category and browse its Python puzzles.",
-    problemType: "Category", allTypes: "All categories", problemNumber: "Puzzle number", goToProblem: "Go", chooseByName: "Choose by title", randomProblem: "Random puzzle", numberRange: "Enter a number from 1 to {total}.", sourceLabel: "Source:", showHint: "Hint", hintTitle: "Hint", showSolution: "Solution", solutionTitle: "Result", showCode: "View a possible Python solution", reasoning: "The reasoning", previous: "Previous", next: "Next",
+    problemType: "Category", allCategories: "All categories", problemNumber: "Number in category", goToProblem: "Go", chooseByName: "Choose by title", randomProblem: "Random puzzle", numberRange: "Enter a number from 1 to {total}.",
+    modulesLabel: "Python modules:", noModules: "No modules required", importModules: "Import:", difficultyLabel: "Difficulty", difficultyFilter: "Difficulty level", allDifficulties: "All levels",
+    difficultyThresholds: ["Very easy (≤ 10)", "Easy (10 < score ≤ 20)", "Fairly easy (20 < score ≤ 30)", "Moderate (30 < score ≤ 40)", "Intermediate (40 < score ≤ 50)", "Somewhat difficult (50 < score ≤ 60)", "Difficult (60 < score ≤ 70)", "Very difficult (70 < score ≤ 80)", "Expert (80 < score ≤ 90)", "Master (90 < score ≤ 100)"],
+    noFilteredPuzzles: "No puzzles in this difficulty range for this category. Choose a different level or category.",
+    sourceLabel: "Source:", showHint: "Hint", hintTitle: "Hint", showSolution: "Solution", solutionTitle: "Result", showCode: "View a possible Python solution", previous: "Previous", next: "Next",
     methodNote: "A HINT", methodTitle: "Solve it step by step", understand: "Understand", understandText: "Identify the rules and expected result.", breakDown: "Break it down", breakDownText: "Turn the problem into small steps.", test: "Verify", testText: "Test your code with examples.",
-    mistakeIsClue: "A mistake is a clue.", footerLine: "One problem at a time. One line of code at a time.", backHome: "Back to home ↑", count: "PUZZLE {current} / {total}",
+    mistakeIsClue: "A mistake is a clue.", footerLine: "One problem at a time. One line of code at a time.", backHome: "Back to home ↑", puzzleCount: "PUZZLE {current} / {total}",
   },
 };
 
-const puzzles = window.PUZZLES;
-const categories = window.PUZZLE_CATEGORIES;
-const answers = window.PUZZLE_ANSWERS;
-const $ = (selector) => document.querySelector(selector);
-const languageSelect = $("#language-select");
-const themeSelect = $("#theme-select");
-const categoryFilters = $("#category-filters");
-const problemNumber = $("#problem-number");
-const problemPicker = $("#problem-picker");
-const hintPanel = $("#hint-panel");
-const solutionPanel = $("#solution-panel");
-const codePanel = $("#code-panel");
-const hintButton = $("#hint-button");
-const solutionButton = $("#solution-button");
-const codeButton = $("#code-button");
-let language = readPreference("puzzle-language") || (navigator.language.toLowerCase().startsWith("en") ? "en" : "fr");
-let activeCategory = "all";
-let currentIndex = 0;
+const puzzleList = window.PUZZLES;
+const puzzleCategories = window.PUZZLE_CATEGORIES;
+const puzzleResults = window.PUZZLE_ANSWERS;
+const getElement = (selector) => document.querySelector(selector);
+const languageSelect = getElement("#language-select");
+const themeSelect = getElement("#theme-select");
+const categoryFilterContainer = getElement("#category-filters");
+const problemNumberInput = getElement("#problem-number");
+const problemTitleSelect = getElement("#problem-picker");
+const difficultyFilter = getElement("#difficulty-filter");
+const moduleStatus = getElement("#module-status");
+const hintPanel = getElement("#hint-panel");
+const solutionPanel = getElement("#solution-panel");
+const codePanel = getElement("#code-panel");
+const hintButton = getElement("#hint-button");
+const solutionButton = getElement("#solution-button");
+const codeButton = getElement("#code-button");
+let selectedLanguage = readPreference("puzzle-language") || (navigator.language.toLowerCase().startsWith("en") ? "en" : "fr");
+let selectedCategory = "all";
+let selectedDifficultyLevel = null;
+let selectedPuzzleIndex = 0;
 
-function readPreference(key) {
-  try { return localStorage.getItem(key); } catch { return null; }
+function readPreference(preferenceName) {
+  try {
+    return localStorage.getItem(preferenceName);
+  } catch {
+    return null;
+  }
 }
 
-function savePreference(key, value) {
-  try { localStorage.setItem(key, value); } catch { return; }
+function savePreference(preferenceName, preferenceValue) {
+  try {
+    localStorage.setItem(preferenceName, preferenceValue);
+  } catch {
+    return;
+  }
 }
 
-function setPanel(button, panel, open) {
-  panel.hidden = !open;
-  button.setAttribute("aria-expanded", String(open));
+function setDisclosure(button, panel, isExpanded) {
+  panel.hidden = !isExpanded;
+  button.setAttribute("aria-expanded", String(isExpanded));
 }
 
-function renderCategories() {
-  const labels = copy[language];
-  const available = Object.keys(categories).filter((key) => puzzles.some((puzzle) => puzzle.category === key));
-  const options = [{ key: "all", label: labels.allTypes }, ...available.map((key) => ({ key, label: categories[key][language] }))];
-  categoryFilters.replaceChildren(...options.map(({ key, label }) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `filter-button${activeCategory === key ? " is-selected" : ""}`;
-    button.textContent = label;
-    button.setAttribute("aria-pressed", String(activeCategory === key));
-    button.addEventListener("click", () => {
-      activeCategory = key;
-      currentIndex = 0;
-      renderCategories();
-      renderPuzzle();
-    });
-    return button;
-  }));
+function getCategoryPuzzles() {
+  const categoryPuzzles = puzzleList.filter((puzzle) =>
+    selectedCategory === "all" || puzzle.category === selectedCategory);
+  if (selectedDifficultyLevel === null) return categoryPuzzles;
+
+  const lowerBound = selectedDifficultyLevel - 10;
+  return categoryPuzzles.filter((puzzle) =>
+    puzzle.difficulty > lowerBound && puzzle.difficulty <= selectedDifficultyLevel);
 }
 
-function getVisiblePuzzles() {
-  return puzzles.filter((puzzle) => activeCategory === "all" || puzzle.category === activeCategory);
-}
+function renderDifficultyFilter() {
+  const localizedText = translations[selectedLanguage];
+  const options = [
+    { value: "all", label: localizedText.allDifficulties },
+    ...localizedText.difficultyThresholds.map((label, index) => ({
+      value: String((index + 1) * 10),
+      label,
+    })),
+  ];
 
-function renderPicker(visiblePuzzles) {
-  problemPicker.replaceChildren(...visiblePuzzles.map((puzzle, index) => {
+  difficultyFilter.replaceChildren(...options.map(({ value, label }) => {
     const option = document.createElement("option");
-    option.value = String(index);
-    option.textContent = `${String(index + 1).padStart(2, "0")} · ${(puzzle[language] || puzzle.fr).title}`;
+    option.value = value;
+    option.textContent = label;
     return option;
   }));
-  problemPicker.value = String(currentIndex);
-  problemNumber.max = String(visiblePuzzles.length);
-  problemNumber.value = String(currentIndex + 1);
+  difficultyFilter.value = selectedDifficultyLevel === null ? "all" : String(selectedDifficultyLevel);
 }
 
-function renderPuzzle() {
-  const labels = copy[language];
-  const visiblePuzzles = getVisiblePuzzles();
-  currentIndex = Math.min(currentIndex, visiblePuzzles.length - 1);
-  const puzzle = visiblePuzzles[currentIndex];
-  if (!puzzle) return;
-  const detail = puzzle[language] || puzzle.fr;
-  $("#category-label").textContent = categories[puzzle.category][language];
-  $("#challenge-count").textContent = labels.count
-    .replace("{current}", String(currentIndex + 1).padStart(2, "0"))
-    .replace("{total}", String(visiblePuzzles.length).padStart(2, "0"));
-  $("#challenge-title").textContent = detail.title;
-  $("#challenge-prompt").textContent = detail.prompt;
-  $("#hint-text").textContent = detail.goal || detail.hint;
-  $("#solution-text").textContent = answers[puzzle.fr.title]?.[language] || answers[puzzle.fr.title]?.fr || "";
-  $("#solution-code").textContent = detail.code;
-  const source = $("#challenge-source");
-  source.textContent = puzzle.source[language] || puzzle.source.fr;
-  if (puzzle.sourceUrl) source.href = puzzle.sourceUrl;
-  else source.removeAttribute("href");
-  $("#previous-button").disabled = currentIndex === 0;
-  $("#next-button").disabled = currentIndex === visiblePuzzles.length - 1;
-  renderPicker(visiblePuzzles);
-  setPanel(hintButton, hintPanel, false);
-  setPanel(solutionButton, solutionPanel, false);
-  setPanel(codeButton, codePanel, false);
+function renderCategoryFilters() {
+  const localizedText = translations[selectedLanguage];
+  const availableCategoryIds = Object.keys(puzzleCategories).filter((categoryId) =>
+    puzzleList.some((puzzle) => puzzle.category === categoryId));
+  const categoryOptions = [
+    { id: "all", label: localizedText.allCategories },
+    ...availableCategoryIds.map((categoryId) => ({
+      id: categoryId,
+      label: puzzleCategories[categoryId][selectedLanguage],
+    })),
+  ];
+
+  categoryFilterContainer.replaceChildren(...categoryOptions.map((categoryOption) => {
+    const categoryButton = document.createElement("button");
+    const isSelected = selectedCategory === categoryOption.id;
+    categoryButton.type = "button";
+    categoryButton.className = `filter-button${isSelected ? " is-selected" : ""}`;
+    categoryButton.textContent = categoryOption.label;
+    categoryButton.setAttribute("aria-pressed", String(isSelected));
+    categoryButton.addEventListener("click", () => {
+      selectedCategory = categoryOption.id;
+      selectedPuzzleIndex = 0;
+      renderCategoryFilters();
+      renderCurrentPuzzle();
+    });
+    return categoryButton;
+  }));
 }
 
-function applyLanguage() {
-  const labels = copy[language];
-  document.documentElement.lang = language;
-  document.title = labels.title;
-  document.querySelectorAll("[data-i18n]").forEach((node) => { node.textContent = labels[node.dataset.i18n]; });
-  document.querySelectorAll("[data-i18n-aria]").forEach((node) => { node.setAttribute("aria-label", labels[node.dataset.i18nAria]); });
-  languageSelect.value = language;
-  renderCategories();
-  renderPuzzle();
+function renderProblemTitleSelect(categoryPuzzles) {
+  problemTitleSelect.replaceChildren(...categoryPuzzles.map((puzzle, puzzleIndex) => {
+    const puzzleOption = document.createElement("option");
+    const localizedPuzzle = puzzle[selectedLanguage] || puzzle.fr;
+    puzzleOption.value = String(puzzleIndex);
+    puzzleOption.textContent = `${String(puzzleIndex + 1).padStart(2, "0")} · ${localizedPuzzle.title}`;
+    return puzzleOption;
+  }));
+  problemTitleSelect.value = String(selectedPuzzleIndex);
+  problemNumberInput.max = String(categoryPuzzles.length);
+  problemNumberInput.value = categoryPuzzles.length ? String(selectedPuzzleIndex + 1) : "";
+  problemNumberInput.disabled = categoryPuzzles.length === 0;
+  problemTitleSelect.disabled = categoryPuzzles.length === 0;
+  getElement("#go-to-problem").disabled = categoryPuzzles.length === 0;
 }
 
-function setView(view) {
-  document.querySelectorAll("[data-view-section]").forEach((section) => { section.hidden = section.dataset.viewSection !== view; });
+function renderCurrentPuzzle() {
+  const localizedText = translations[selectedLanguage];
+  const categoryPuzzles = getCategoryPuzzles();
+  selectedPuzzleIndex = categoryPuzzles.length
+    ? Math.min(Math.max(0, selectedPuzzleIndex), categoryPuzzles.length - 1)
+    : 0;
+  const currentPuzzle = categoryPuzzles[selectedPuzzleIndex];
+  if (!currentPuzzle) {
+    getElement("#challenge-layout").hidden = true;
+    getElement("#empty-state").hidden = false;
+    renderProblemTitleSelect(categoryPuzzles);
+    return;
+  }
+  getElement("#challenge-layout").hidden = false;
+  getElement("#empty-state").hidden = true;
+
+  const localizedPuzzle = currentPuzzle[selectedLanguage] || currentPuzzle.fr;
+  const puzzleNumber = selectedPuzzleIndex + 1;
+  getElement("#category-label").textContent = puzzleCategories[currentPuzzle.category][selectedLanguage];
+  getElement("#challenge-count").textContent = localizedText.puzzleCount
+    .replace("{current}", String(puzzleNumber).padStart(2, "0"))
+    .replace("{total}", String(categoryPuzzles.length).padStart(2, "0"));
+  getElement("#challenge-title").textContent = localizedPuzzle.title;
+  getElement("#challenge-prompt").textContent = localizedPuzzle.prompt;
+  getElement("#hint-text").textContent = localizedPuzzle.goal;
+  getElement("#solution-text").textContent = puzzleResults[currentPuzzle.fr.title][selectedLanguage];
+  getElement("#solution-code").textContent = localizedPuzzle.code;
+
+  const sourceLink = getElement("#challenge-source");
+  sourceLink.textContent = currentPuzzle.source[selectedLanguage] || currentPuzzle.source.fr;
+  if (currentPuzzle.sourceUrl) sourceLink.href = currentPuzzle.sourceUrl;
+  else sourceLink.removeAttribute("href");
+  const requiredModules = currentPuzzle.modules || [];
+  moduleStatus.textContent = requiredModules.length
+    ? `${localizedText.importModules} ${requiredModules.join(", ")}`
+    : localizedText.noModules;
+  moduleStatus.classList.toggle("is-required", requiredModules.length > 0);
+  const difficulty = Number(currentPuzzle.difficulty);
+  const difficultyValue = Number.isInteger(difficulty) && difficulty >= 1 && difficulty <= 100 ? difficulty : 1;
+  getElement("#difficulty-value").textContent = `${difficultyValue}/100`;
+
+  getElement("#previous-button").disabled = selectedPuzzleIndex === 0;
+  getElement("#next-button").disabled = selectedPuzzleIndex === categoryPuzzles.length - 1;
+  renderProblemTitleSelect(categoryPuzzles);
+  setDisclosure(hintButton, hintPanel, false);
+  setDisclosure(solutionButton, solutionPanel, false);
+  setDisclosure(codeButton, codePanel, false);
+}
+
+function applyTranslations() {
+  const localizedText = translations[selectedLanguage];
+  document.documentElement.lang = selectedLanguage;
+  document.title = localizedText.title;
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = localizedText[element.dataset.i18n];
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    element.setAttribute("aria-label", localizedText[element.dataset.i18nAria]);
+  });
+  languageSelect.value = selectedLanguage;
+  renderDifficultyFilter();
+  renderCategoryFilters();
+  renderCurrentPuzzle();
+}
+
+function showView(viewName) {
+  document.querySelectorAll("[data-view-section]").forEach((section) => {
+    section.hidden = section.dataset.viewSection !== viewName;
+  });
   document.querySelectorAll("[data-view]").forEach((button) => {
-    const active = button.dataset.view === view;
-    button.classList.toggle("is-active", active);
+    const isActive = button.dataset.view === viewName;
+    button.classList.toggle("is-active", isActive);
     if (button.classList.contains("nav-link")) {
-      if (active) button.setAttribute("aria-current", "page");
+      if (isActive) button.setAttribute("aria-current", "page");
       else button.removeAttribute("aria-current");
     }
   });
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function goToProblem() {
-  const requested = Number(problemNumber.value);
-  const total = getVisiblePuzzles().length;
-  if (!Number.isInteger(requested) || requested < 1 || requested > total) {
-    problemNumber.setCustomValidity(copy[language].numberRange.replace("{total}", String(total)));
-    problemNumber.reportValidity();
+function goToPuzzleNumber() {
+  const requestedPuzzleNumber = Number(problemNumberInput.value);
+  const categoryPuzzleCount = getCategoryPuzzles().length;
+  if (!Number.isInteger(requestedPuzzleNumber) || requestedPuzzleNumber < 1 || requestedPuzzleNumber > categoryPuzzleCount) {
+    problemNumberInput.setCustomValidity(translations[selectedLanguage].numberRange.replace("{total}", String(categoryPuzzleCount)));
+    problemNumberInput.reportValidity();
     return;
   }
-  problemNumber.setCustomValidity("");
-  currentIndex = requested - 1;
-  renderPuzzle();
+
+  problemNumberInput.setCustomValidity("");
+  selectedPuzzleIndex = requestedPuzzleNumber - 1;
+  renderCurrentPuzzle();
 }
 
-document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => setView(button.dataset.view)));
-$("#go-to-problem").addEventListener("click", goToProblem);
-problemNumber.addEventListener("input", () => problemNumber.setCustomValidity(""));
-problemNumber.addEventListener("keydown", (event) => { if (event.key === "Enter") goToProblem(); });
-problemPicker.addEventListener("change", () => {
-  currentIndex = Number(problemPicker.value);
-  renderPuzzle();
+document.querySelectorAll("[data-view]").forEach((button) => {
+  button.addEventListener("click", () => showView(button.dataset.view));
 });
-$("#random-puzzle").addEventListener("click", () => {
-  const puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
-  activeCategory = puzzle.category;
-  currentIndex = getVisiblePuzzles().indexOf(puzzle);
-  renderCategories();
-  renderPuzzle();
-  setView("problems");
+getElement("#go-to-problem").addEventListener("click", goToPuzzleNumber);
+difficultyFilter.addEventListener("change", () => {
+  selectedDifficultyLevel = difficultyFilter.value === "all" ? null : Number(difficultyFilter.value);
+  selectedPuzzleIndex = 0;
+  renderCurrentPuzzle();
 });
-$("#previous-button").addEventListener("click", () => { currentIndex -= 1; renderPuzzle(); });
-$("#next-button").addEventListener("click", () => { currentIndex += 1; renderPuzzle(); });
-hintButton.addEventListener("click", () => setPanel(hintButton, hintPanel, hintPanel.hidden));
-solutionButton.addEventListener("click", () => setPanel(solutionButton, solutionPanel, solutionPanel.hidden));
-codeButton.addEventListener("click", () => setPanel(codeButton, codePanel, codePanel.hidden));
+problemNumberInput.addEventListener("input", () => problemNumberInput.setCustomValidity(""));
+problemNumberInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") goToPuzzleNumber();
+});
+problemTitleSelect.addEventListener("change", () => {
+  selectedPuzzleIndex = Number(problemTitleSelect.value);
+  renderCurrentPuzzle();
+});
+getElement("#random-puzzle").addEventListener("click", () => {
+  const randomPuzzle = puzzleList[Math.floor(Math.random() * puzzleList.length)];
+  selectedDifficultyLevel = null;
+  selectedCategory = randomPuzzle.category;
+  selectedPuzzleIndex = getCategoryPuzzles().indexOf(randomPuzzle);
+  renderDifficultyFilter();
+  renderCategoryFilters();
+  renderCurrentPuzzle();
+  showView("problems");
+});
+getElement("#previous-button").addEventListener("click", () => {
+  selectedPuzzleIndex -= 1;
+  renderCurrentPuzzle();
+});
+getElement("#next-button").addEventListener("click", () => {
+  selectedPuzzleIndex += 1;
+  renderCurrentPuzzle();
+});
+hintButton.addEventListener("click", () => setDisclosure(hintButton, hintPanel, hintPanel.hidden));
+solutionButton.addEventListener("click", () => setDisclosure(solutionButton, solutionPanel, solutionPanel.hidden));
+codeButton.addEventListener("click", () => setDisclosure(codeButton, codePanel, codePanel.hidden));
 
 languageSelect.addEventListener("change", () => {
-  language = languageSelect.value;
-  savePreference("puzzle-language", language);
-  applyLanguage();
+  selectedLanguage = languageSelect.value;
+  savePreference("puzzle-language", selectedLanguage);
+  applyTranslations();
 });
 themeSelect.addEventListener("change", () => {
-  const mode = themeSelect.value;
-  if (mode === "default") document.documentElement.removeAttribute("data-theme");
-  else document.documentElement.dataset.theme = mode;
-  savePreference("puzzle-theme", mode);
+  const selectedTheme = themeSelect.value;
+  if (selectedTheme === "default") document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.dataset.theme = selectedTheme;
+  savePreference("puzzle-theme", selectedTheme);
 });
 
-const storedLanguage = readPreference("puzzle-language");
-if (storedLanguage === "en" || storedLanguage === "fr") language = storedLanguage;
-const theme = readPreference("puzzle-theme") || "default";
-if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
-themeSelect.value = theme;
-applyLanguage();
+const savedLanguage = readPreference("puzzle-language");
+if (savedLanguage === "en" || savedLanguage === "fr") selectedLanguage = savedLanguage;
+const savedTheme = readPreference("puzzle-theme") || "default";
+if (savedTheme === "light" || savedTheme === "dark") document.documentElement.dataset.theme = savedTheme;
+themeSelect.value = savedTheme;
+applyTranslations();

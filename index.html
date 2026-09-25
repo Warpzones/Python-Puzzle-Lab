@@ -64,16 +64,22 @@
       <div class="filter-panel">
         <fieldset class="filter-group"><legend data-i18n="problemType">Catégorie</legend><div class="segmented-control" id="category-filters"></div></fieldset>
         <div class="problem-tools">
-          <div class="quick-jump"><label for="problem-number" data-i18n="problemNumber">Numéro</label><input id="problem-number" type="number" min="1" step="1" inputmode="numeric"><button class="button button-secondary" id="go-to-problem" type="button" data-i18n="goToProblem">Aller</button></div>
+          <div class="quick-jump"><label for="problem-number" data-i18n="problemNumber">N° dans la catégorie</label><input id="problem-number" type="number" min="1" step="1" inputmode="numeric"><button class="button button-secondary" id="go-to-problem" type="button" data-i18n="goToProblem">Aller</button></div>
           <label class="picker-control"><span data-i18n="chooseByName">Choisir par titre</span><select id="problem-picker"></select></label>
+          <label class="picker-control difficulty-control"><span data-i18n="difficultyFilter">Difficulté maximale</span><select id="difficulty-filter"></select></label>
           <button class="button button-primary random-button" id="random-puzzle" type="button"><span aria-hidden="true">⤨</span><span data-i18n="randomProblem">Énigme au hasard</span></button>
         </div>
       </div>
-      <div class="challenge-layout">
+      <p class="empty-state" id="empty-state" hidden data-i18n="noFilteredPuzzles">Aucune énigme dans cette tranche pour cette catégorie. Choisis un autre niveau ou une autre catégorie.</p>
+      <div class="challenge-layout" id="challenge-layout">
         <article class="challenge" aria-live="polite">
           <div class="challenge-meta"><span class="category-label" id="category-label"></span><span class="challenge-count" id="challenge-count"></span></div>
           <h2 id="challenge-title"></h2><p class="challenge-prompt" id="challenge-prompt"></p>
-          <p class="source-line"><span class="source-icon" aria-hidden="true">↗</span><strong data-i18n="sourceLabel">Source :</strong><a id="challenge-source" target="_blank" rel="noopener noreferrer"></a></p>
+          <div class="puzzle-details">
+            <p class="source-line"><span class="source-icon" aria-hidden="true">↗</span><strong data-i18n="sourceLabel">Source :</strong><a id="challenge-source" target="_blank" rel="noopener noreferrer"></a></p>
+            <p class="module-line"><span class="module-icon" aria-hidden="true">{ }</span><strong data-i18n="modulesLabel">Modules Python :</strong><span class="module-status" id="module-status"></span></p>
+            <p class="difficulty-line"><span class="difficulty-icon" aria-hidden="true">◈</span><strong data-i18n="difficultyLabel">Difficulté</strong><span class="difficulty-value" id="difficulty-value"></span></p>
+          </div>
           <div class="challenge-actions">
             <button class="button button-secondary" id="hint-button" type="button" aria-expanded="false" aria-controls="hint-panel"><span class="button-symbol" aria-hidden="true">?</span><span data-i18n="showHint">Indice</span></button>
             <button class="button button-secondary" id="code-button" type="button" aria-expanded="false" aria-controls="code-panel"><span class="button-symbol code-symbol" aria-hidden="true">{ }</span><span data-i18n="showCode">Voir un code Python possible</span></button>

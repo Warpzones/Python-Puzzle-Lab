@@ -132,7 +132,7 @@ main, .site-footer { width: min(1080px, calc(100% - 64px)); }
 }
 .problem-tools {
   display: grid;
-  grid-template-columns: minmax(185px, .8fr) minmax(220px, 1.3fr) auto;
+  grid-template-columns: minmax(170px, .85fr) minmax(210px, 1.2fr) minmax(180px, 1fr) auto;
   align-items: end;
   gap: 12px;
   padding-top: 14px;
@@ -190,11 +190,19 @@ main, .site-footer { width: min(1080px, calc(100% - 64px)); }
 .challenge-prompt { color: var(--muted); }
 .goal-line { background: color-mix(in srgb, var(--green-pale) 55%, var(--paper)); }
 .goal-line p span { color: var(--muted); }
-.source-line { display: flex; align-items: baseline; gap: 7px; margin: -11px 0 20px; color: var(--muted); font-size: 10px; line-height: 1.6; }
-.source-line strong { color: var(--ink); font-weight: 700; }
+.puzzle-details { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin: -9px 0 20px; }
+.puzzle-details .source-line, .module-line { display: inline-flex; align-items: center; gap: 7px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.puzzle-details .source-line strong, .module-line strong { color: var(--ink); font-weight: 700; }
 .source-line a { color: var(--green-dark); text-decoration-color: var(--line); text-underline-offset: 3px; }
 .source-line a:hover { text-decoration-color: var(--green); }
 .source-icon { color: var(--green); font-size: 12px; }
+.module-icon { color: var(--green); font-family: var(--mono); font-size: 10px; }
+.module-status { padding: 2px 7px; background: var(--green-pale); color: var(--green-dark); font-family: var(--mono); font-size: 9px; }
+.module-status.is-required { background: color-mix(in srgb, var(--coral) 14%, var(--surface)); color: var(--ink); }
+.difficulty-line { display: inline-flex; align-items: center; gap: 7px; margin: 0; color: var(--muted); font-size: 10px; }
+.difficulty-line strong { color: var(--ink); font-weight: 700; }
+.difficulty-icon { color: var(--coral); font-size: 12px; }
+.difficulty-value { color: var(--green-dark); font-family: var(--mono); font-size: 9px; font-weight: 500; }
 .button { border-radius: 3px; }
 .button-primary { border-color: var(--green); background: var(--green); }
 .button-primary:hover { border-color: var(--green-dark); background: var(--green-dark); }
@@ -264,7 +272,8 @@ html[data-theme="dark"] .preference-control { background-color: var(--surface); 
   .quick-jump { gap: 6px; }
   .quick-jump label { max-width: 70px; line-height: 1.4; }
   .quick-jump input { width: 54px; }
-  .picker-control { grid-column: 1 / -1; grid-row: 2; }
+  .picker-control:not(.difficulty-control) { grid-column: 1 / -1; grid-row: 2; }
+  .difficulty-control { grid-column: 1 / -1; grid-row: 3; }
   .random-button { grid-column: 2; grid-row: 1; padding: 0 9px; }
   .challenge-actions { gap: 8px; }
   .segmented-control { gap: 5px; }

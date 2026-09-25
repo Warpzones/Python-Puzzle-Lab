@@ -1,47 +1,53 @@
-# Ajouter des énigmes
+# Add Puzzles
 
-Les énoncés et les codes se modifient dans `puzzle-bank.js`. Les catégories, le menu des problèmes et les compteurs se mettent à jour automatiquement.
+Edit puzzle statements and code in `puzzle-bank.js`. Categories, the puzzle menu, and puzzle counts update automatically.
 
-## Ajouter une énigme
+## Add a Puzzle
 
-Ajoute un objet dans le tableau `window.PUZZLES`. Chaque problème contient une catégorie, une source et les textes français et anglais :
+Add an object to the `window.PUZZLES` array. Each puzzle needs a category, a source, and French and English text:
 
 ```js
 {
   category: "maths",
+  difficulty: 10,
   sourceUrl: "https://projecteuler.net/problem=1",
   source: {
     fr: "Project Euler — Problème 1",
     en: "Project Euler — Problem 1",
   },
+  modules: ["math"],
   fr: {
     title: "Titre français",
     prompt: "Énoncé du problème.",
     goal: "Indice qui aide à démarrer.",
-    code: "print(1 + 1)",
+    code: "import math\nprint(math.sqrt(4))",
   },
   en: {
     title: "English title",
     prompt: "Problem statement.",
     goal: "A hint to get started.",
-    code: "print(1 + 1)",
+    code: "import math\nprint(math.sqrt(4))",
   },
 },
 ```
 
-Pour un problème sans page source, retire `sourceUrl` et remplace le texte de `source` par son origine.
+`modules` is optional. List the Python import names required by the code, such as `math`. Omit the field or use an empty array when no imports are needed; the puzzle page will show the appropriate status.
 
-Ajoute ensuite le résultat final dans `puzzle-answers.js`, en utilisant exactement le titre français comme clé :
+`difficulty` is required and must be an integer from 1 (easiest) to 100 (hardest). The problem page displays the rating as a number. Difficulty levels use exclusive ranges: **Very easy (≤ 10)**, **Easy (10 < score ≤ 20)**, and so on through **Master (90 < score ≤ 100)**. Puzzle numbering and counts update to match the selected category and range. If a category has no puzzles in a selected range, the page displays an empty-state message. The random button clears the difficulty filter and still draws from the full catalog.
+
+For a puzzle without a source webpage, remove `sourceUrl` and set `source` to describe where it came from.
+
+Then add the final answer to `puzzle-answers.js`, using the exact French title as its key:
 
 ```js
 "Titre français": { fr: "Résultat", en: "Answer" },
 ```
 
-Le bouton **Indice** affiche `goal`, **Code** affiche `code` et **Solution** affiche seulement cette réponse finale.
+The **Hint** button displays `goal`, **Code** displays `code`, and **Solution** displays only the final answer.
 
-## Ajouter une catégorie
+## Add a Category
 
-Ajoute une entrée dans `window.PUZZLE_CATEGORIES` en haut de `puzzle-bank.js`, puis utilise son identifiant comme `category` dans les problèmes :
+Add an entry to `window.PUZZLE_CATEGORIES` at the top of `puzzle-bank.js`, then use its ID as the `category` value for each relevant puzzle:
 
 ```js
 window.PUZZLE_CATEGORIES = {
@@ -51,4 +57,6 @@ window.PUZZLE_CATEGORIES = {
 };
 ```
 
-La catégorie apparaît dès qu'elle possède au moins une énigme. Le numéro saisi et le compteur sont locaux à la catégorie sélectionnée; le bouton aléatoire, lui, pioche dans tout le catalogue. Les codes fournis n'utilisent pas de module Python externe.
+The category appears as soon as it has at least one puzzle. Number entry and puzzle counts follow the selected category, while the random button draws from the entire catalog. The included Python examples do not require external modules.
+
+The French guide is [`AJOUTER_ENIGMES.fr.md`](AJOUTER_ENIGMES.fr.md).
