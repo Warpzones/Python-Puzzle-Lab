@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f6ff">
+  <title>Atelier Énigmes Python — Défis de programmation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-theme.css">
+  <script src="puzzle-bank.js" defer></script>
+  <script src="puzzle-answers.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#accueil" data-view="home" aria-label="Accueil">
+      <span class="brand-mark">{<span>py</span>}</span>
+      <span class="brand-name" data-i18n="siteName">Atelier Énigmes Python</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale" data-i18n-aria="mainNavigation">
+      <button class="nav-link is-active" type="button" data-view="home" data-i18n="home">Accueil</button>
+      <button class="nav-link" type="button" data-view="problems" data-i18n="problems">Énigmes</button>
+    </nav>
+    <div class="preferences" aria-label="Préférences d'affichage" data-i18n-aria="preferences">
+      <label class="preference-control"><span class="preference-icon" aria-hidden="true">◐</span>
+        <select id="theme-select" aria-label="Thème" data-i18n-aria="theme">
+          <option value="default" data-i18n="themeDefault">Système</option><option value="light" data-i18n="themeLight">Clair</option><option value="dark" data-i18n="themeDark">Sombre</option>
+        </select>
+      </label>
+      <label class="preference-control language-control"><span class="preference-icon language-icon" aria-hidden="true">文</span>
+        <select id="language-select" aria-label="Langue" data-i18n-aria="language"><option value="fr">FR</option><option value="en">EN</option></select>
+      </label>
+    </div>
+  </header>
+  <main>
+    <section class="intro" id="accueil" data-view-section="home" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="homeEyebrow">APPRENDRE EN RÉSOLVANT</span></p>
+        <h1 id="intro-title"><span data-i18n="heroLineOne">Pensez le problème.</span><br><span data-i18n="heroLineTwo">Codez la solution.</span></h1>
+        <p class="intro-text" data-i18n="introText">Un terrain de jeu pour résoudre des énigmes avec Python. Choisissez un thème, puis comparez votre raisonnement à une solution expliquée.</p>
+        <button class="text-link" type="button" data-view="problems"><span data-i18n="exploreProblems">Explorer les énigmes</span><span aria-hidden="true">→</span></button>
+      </div>
+      <div class="math-illustration" role="img" aria-label="Exemple de problème en Python" data-i18n-aria="heroIllustration">
+        <div class="illustration-topline"><span data-i18n="researchNote">CARNET DE RECHERCHE</span><span>PY / 01</span></div>
+        <div class="formula"><span class="formula-muted">for</span> n <span class="formula-muted">in</span> range(<span class="formula-number">?</span>):</div>
+        <div class="formula-rule"></div><div class="formula-result"><span data-i18n="question">LA QUESTION</span><strong>n = ?</strong></div>
+        <div class="illustration-scribble" aria-hidden="true">&lt; solve /&gt;</div>
+      </div>
+      <div class="home-steps" aria-label="Comment ça marche" data-i18n-aria="howItWorks">
+        <article class="home-step"><span class="step-number">01</span><h2 data-i18n="stepChooseTitle">Choisissez</h2><p data-i18n="stepChooseText">Un thème qui vous intéresse.</p></article>
+        <article class="home-step"><span class="step-number">02</span><h2 data-i18n="stepSolveTitle">Cherchez</h2><p data-i18n="stepSolveText">Écrivez et testez votre propre solution.</p></article>
+        <article class="home-step"><span class="step-number">03</span><h2 data-i18n="stepLearnTitle">Progressez</h2><p data-i18n="stepLearnText">Consultez le raisonnement et le code.</p></article>
+      </div>
+    </section>
+
+    <section class="challenge-section" id="problemes" data-view-section="problems" hidden aria-labelledby="section-title">
+      <div class="section-heading"><div>
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="challengeEyebrow">À VOUS DE JOUER</span></p>
+        <h1 id="section-title" data-i18n="challengeTitle">La bibliothèque d'énigmes</h1>
+      </div><p class="section-caption" data-i18n="challengeCaption">Choisissez une catégorie et parcourez ses énigmes Python.</p></div>
+      <div class="filter-panel">
+        <fieldset class="filter-group"><legend data-i18n="problemType">Catégorie</legend><div class="segmented-control" id="category-filters"></div></fieldset>
+        <div class="problem-tools">
+          <div class="quick-jump"><label for="problem-number" data-i18n="problemNumber">Numéro</label><input id="problem-number" type="number" min="1" step="1" inputmode="numeric"><button class="button button-secondary" id="go-to-problem" type="button" data-i18n="goToProblem">Aller</button></div>
+          <label class="picker-control"><span data-i18n="chooseByName">Choisir par titre</span><select id="problem-picker"></select></label>
+          <button class="button button-primary random-button" id="random-puzzle" type="button"><span aria-hidden="true">⤨</span><span data-i18n="randomProblem">Énigme au hasard</span></button>
+        </div>
+      </div>
+      <div class="challenge-layout">
+        <article class="challenge" aria-live="polite">
+          <div class="challenge-meta"><span class="category-label" id="category-label"></span><span class="challenge-count" id="challenge-count"></span></div>
+          <h2 id="challenge-title"></h2><p class="challenge-prompt" id="challenge-prompt"></p>
+          <p class="source-line"><span class="source-icon" aria-hidden="true">↗</span><strong data-i18n="sourceLabel">Source :</strong><a id="challenge-source" target="_blank" rel="noopener noreferrer"></a></p>
+          <div class="challenge-actions">
+            <button class="button button-secondary" id="hint-button" type="button" aria-expanded="false" aria-controls="hint-panel"><span class="button-symbol" aria-hidden="true">?</span><span data-i18n="showHint">Indice</span></button>
+            <button class="button button-secondary" id="code-button" type="button" aria-expanded="false" aria-controls="code-panel"><span class="button-symbol code-symbol" aria-hidden="true">{ }</span><span data-i18n="showCode">Voir un code Python possible</span></button>
+            <button class="button button-primary" id="solution-button" type="button" aria-expanded="false" aria-controls="solution-panel"><span class="button-symbol" aria-hidden="true">✓</span><span data-i18n="showSolution">Voir le résultat</span></button>
+          </div>
+          <section class="answer-panel" id="hint-panel" hidden aria-labelledby="hint-heading"><div class="panel-heading"><span class="panel-index">?</span><h3 id="hint-heading" data-i18n="hintTitle">Indice</h3></div><p id="hint-text"></p></section>
+          <section class="answer-panel" id="solution-panel" hidden aria-labelledby="solution-heading"><div class="panel-heading"><span class="panel-index">01</span><h3 id="solution-heading" data-i18n="solutionTitle">Résultat</h3></div><p id="solution-text"></p></section>
+          <section class="code-panel" id="code-panel" hidden aria-labelledby="code-heading"><div class="code-topbar"><h3 id="code-heading"><span class="terminal-dot"></span> solution.py</h3><span>PYTHON 3</span></div><pre><code id="solution-code"></code></pre></section>
+          <div class="challenge-pagination"><button class="pagination-button" id="previous-button" type="button"><span aria-hidden="true">←</span><span data-i18n="previous">Précédent</span></button><button class="pagination-button" id="next-button" type="button"><span data-i18n="next">Suivant</span><span aria-hidden="true">→</span></button></div>
+        </article>
+        <aside class="method-note" aria-labelledby="method-title"><p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="methodNote">MÉTHODE</span></p><h2 id="method-title" data-i18n="methodTitle">Résoudre pas à pas</h2>
+          <ol class="method-list">
+            <li><span>1</span><p><strong data-i18n="understand">Comprendre</strong><br><span data-i18n="understandText">Repérez les règles et le résultat attendu.</span></p></li>
+            <li><span>2</span><p><strong data-i18n="breakDown">Découper</strong><br><span data-i18n="breakDownText">Transformez le problème en étapes.</span></p></li>
+            <li><span>3</span><p><strong data-i18n="test">Vérifier</strong><br><span data-i18n="testText">Testez votre code sur des exemples.</span></p></li>
+          </ol><div class="note-footer"><span class="note-star" aria-hidden="true">✳</span><span data-i18n="mistakeIsClue">Une erreur est une piste.</span></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="#accueil" data-view="home"><span class="footer-mark">{py}</span><span data-i18n="siteName">Atelier Énigmes Python</span></a><p data-i18n="footerLine">Un problème à la fois. Une ligne de code à la fois.</p><button class="back-to-top" type="button" data-view="home" data-i18n="backHome">Retour à l'accueil ↑</button></footer>
+</body>
+</html>
