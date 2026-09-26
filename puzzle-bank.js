@@ -104,18 +104,24 @@ window.PUZZLES = [
     en: { title: "The nearest point", prompt: "Create a Point class with x and y coordinates and a method that returns its distance from the origin (0, 0).", goal: "Create a point at (3, 4) and find its distance from the origin.", code: "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def distance_to_origin(self):\n        return (self.x ** 2 + self.y ** 2) ** 0.5\n\nprint(Point(3, 4).distance_to_origin())  # 5.0" },
   },
   {
-    category: "free", difficulty: 10, source: { fr: "Énigme originale", en: "Original puzzle" },
+    category: "maths", difficulty: 10, source: { fr: "Énigme originale", en: "Original puzzle" },
     fr: { title: "Le jeu des multiples", prompt: "Pour chaque nombre de 1 à 30, affiche Fizz s'il est divisible par 3, Buzz par 5, et FizzBuzz par les deux.", goal: "Teste la divisibilité par 3 et 5 avant les autres cas.", code: "for nombre in range(1, 31):\n    if nombre % 15 == 0:\n        print(\"FizzBuzz\")\n    elif nombre % 3 == 0:\n        print(\"Fizz\")\n    elif nombre % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(nombre)" },
     en: { title: "The multiples game", prompt: "For each number from 1 to 30, print Fizz if divisible by 3, Buzz if divisible by 5, and FizzBuzz if divisible by both.", goal: "Check divisibility by both 3 and 5 before the other cases.", code: "for number in range(1, 31):\n    if number % 15 == 0:\n        print(\"FizzBuzz\")\n    elif number % 3 == 0:\n        print(\"Fizz\")\n    elif number % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(number)" },
   },
   {
     category: "free", difficulty: 25, source: { fr: "Énigme originale", en: "Original puzzle" },
-    fr: { title: "Le mot miroir", prompt: "Écris une fonction récursive qui vérifie si un mot est un palindrome, comme kayak.", goal: "Compare les extrémités, puis examine le morceau restant.", code: "def est_palindrome(mot):\n    if len(mot) <= 1:\n        return True\n    if mot[0] != mot[-1]:\n        return False\n    return est_palindrome(mot[1:-1])\n\nprint(est_palindrome(\"kayak\"))  # True" },
-    en: { title: "The mirror word", prompt: "Write a recursive function that checks whether a word is a palindrome, such as kayak.", goal: "Compare the ends, then examine the remaining substring.", code: "def is_palindrome(word):\n    if len(word) <= 1:\n        return True\n    if word[0] != word[-1]:\n        return False\n    return is_palindrome(word[1:-1])\n\nprint(is_palindrome(\"kayak\"))  # True" },
+    fr: { title: "Le mot miroir", prompt: "Écris une fonction qui vérifie si un mot est un palindrome, comme kayak.", goal: "Compare les extrémités, puis examine le morceau restant.", code: "def est_palindrome(mot):\n    if len(mot) <= 1:\n        return True\n    if mot[0] != mot[-1]:\n        return False\n    return est_palindrome(mot[1:-1])\n\nprint(est_palindrome(\"kayak\"))  # True" },
+    en: { title: "The mirror word", prompt: "Write a function that checks whether a word is a palindrome, such as kayak.", goal: "Compare the ends, then examine the remaining substring.", code: "def is_palindrome(word):\n    if len(word) <= 1:\n        return True\n    if word[0] != word[-1]:\n        return False\n    return is_palindrome(word[1:-1])\n\nprint(is_palindrome(\"kayak\"))  # True" },
   },
   {
     category: "free", difficulty: 30, source: { fr: "Énigme originale", en: "Original puzzle" },
     fr: { title: "Un compte sans découvert", prompt: "Crée une classe CompteBancaire qui accepte les dépôts positifs et refuse les retraits supérieurs au solde.", goal: "Teste un dépôt, un retrait valide et un retrait trop élevé.", code: "class CompteBancaire:\n    def __init__(self, solde=0):\n        self.solde = solde\n\n    def deposer(self, montant):\n        if montant <= 0:\n            return False\n        self.solde += montant\n        return True\n\n    def retirer(self, montant):\n        if montant <= 0 or montant > self.solde:\n            return False\n        self.solde -= montant\n        return True" },
     en: { title: "An overdraft-proof account", prompt: "Create a BankAccount class that accepts positive deposits and rejects withdrawals larger than the balance.", goal: "Test a deposit, a valid withdrawal, and an excessive withdrawal.", code: "class BankAccount:\n    def __init__(self, balance=0):\n        self.balance = balance\n\n    def deposit(self, amount):\n        if amount <= 0:\n            return False\n        self.balance += amount\n        return True\n\n    def withdraw(self, amount):\n        if amount <= 0 or amount > self.balance:\n            return False\n        self.balance -= amount\n        return True" },
   },
+  {
+    category: "free", difficulty: 5, source: { fr: "Énigme originale", en: "Original puzzle" },
+    fr: { title: "Afficher 100 fois Hello", prompt: "Affiche 100 fois le message « Hello » en Python.", goal: "Utilise la répétition de chaîne de caractères ou une boucle.", code: "print(\"Hello\\n\" * 100)" },
+    en: { title: "Print Hello 100 times", prompt: "Print the message \"Hello\" 100 times in Python.", goal: "Use string multiplication or a loop.", code: "print(\"Hello\\n\" * 100)" },
+  },
+  
 ];

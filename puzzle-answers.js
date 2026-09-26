@@ -19,4 +19,5 @@ window.PUZZLE_ANSWERS = {
   "Le jeu des multiples": { fr: "FizzBuzz apparaît pour 15 et 30", en: "FizzBuzz appears for 15 and 30" },
   "Le mot miroir": { fr: "kayak : vrai; python : faux", en: "kayak: true; python: false" },
   "Un compte sans découvert": { fr: "Dépôt accepté, retrait de 30 accepté, retrait de 100 refusé", en: "Deposit accepted, 30 withdrawal accepted, 100 withdrawal rejected" },
+  "Afficher 100 fois Hello": { fr: "Hello répété 100 fois", en: "Hello repeated 100 times" },
 };
