@@ -2,12 +2,13 @@ const translations = {
   fr: {
     title: "Atelier Énigmes Python — Défis de programmation", siteName: "Atelier Énigmes Python",
     mainNavigation: "Navigation principale", preferences: "Préférences d'affichage", theme: "Thème", language: "Langue",
-    themeDefault: "Système", themeLight: "Clair", themeDark: "Sombre", home: "Accueil", problems: "Énigmes",
+    themeDefault: "Système", themeLight: "Clair", themeDark: "Sombre", home: "Accueil", mentalPuzzles: "Énigme", programmingPuzzles: "Énigme programmation", about: "À propos",
     homeEyebrow: "APPRENDRE EN RÉSOLVANT", heroLineOne: "Pensez le problème.", heroLineTwo: "Codez la solution.",
     introText: "Un terrain de jeu pour résoudre des énigmes avec Python. Choisissez un thème, puis comparez votre raisonnement à une solution expliquée.",
     exploreProblems: "Explorer les énigmes", heroIllustration: "Exemple de problème en Python", researchNote: "CARNET DE RECHERCHE", question: "LA QUESTION", howItWorks: "Comment ça marche",
     stepChooseTitle: "Choisissez", stepChooseText: "Un thème qui vous intéresse.", stepSolveTitle: "Cherchez", stepSolveText: "Écrivez et testez votre propre solution.", stepLearnTitle: "Progressez", stepLearnText: "Consultez le raisonnement et le code.",
-    challengeEyebrow: "À VOUS DE JOUER", challengeTitle: "La bibliothèque d'énigmes", challengeCaption: "Choisissez une catégorie et parcourez ses énigmes Python.",
+    challengeEyebrow: "À VOUS DE JOUER", mentalLibraryTitle: "Énigmes à résoudre sans code", programmingLibraryTitle: "Énigmes de programmation", mentalLibraryCaption: "Choisissez une catégorie et résolvez les problèmes de tête ou sur papier.", programmingLibraryCaption: "Choisissez une catégorie et résolvez les problèmes en Python.",
+    aboutEyebrow: "À PROPOS DU PROJET", aboutTitle: "Des énigmes accessibles à tous.", aboutText: "Ce site rassemble des problèmes pour réfléchir, apprendre et partager des solutions Python. Certaines énigmes se résolvent de tête ou sur papier; d’autres invitent à programmer. Les énoncés, indices et réponses sont choisis et publiés par le créateur. L’IA a aidé à construire le site, mais elle ne génère pas les énigmes ni leurs solutions pour les visiteurs.", aboutSignoff: "Un espace de partage et d’apprentissage, ouvert à tous les niveaux.",
     problemType: "Catégorie", allCategories: "Toutes", problemNumber: "N° dans la catégorie", goToProblem: "Aller", chooseByName: "Choisir par titre", randomProblem: "Énigme aléatoire", numberRange: "Saisis un numéro entre 1 et {total}.",
     modulesLabel: "Modules Python :", noModules: "Aucun module requis", importModules: "À importer :", difficultyLabel: "Difficulté", difficultyFilter: "Niveau de difficulté", allDifficulties: "Tous les niveaux",
     difficultyThresholds: ["Très facile (≤ 10)", "Facile (10 < note ≤ 20)", "Assez facile (20 < note ≤ 30)", "Modérée (30 < note ≤ 40)", "Intermédiaire (40 < note ≤ 50)", "Assez difficile (50 < note ≤ 60)", "Difficile (60 < note ≤ 70)", "Très difficile (70 < note ≤ 80)", "Expert (80 < note ≤ 90)", "Maître (90 < note ≤ 100)"],
@@ -19,12 +20,13 @@ const translations = {
   en: {
     title: "Python Puzzle Lab — Programming Challenges", siteName: "Python Puzzle Lab",
     mainNavigation: "Main navigation", preferences: "Display preferences", theme: "Theme", language: "Language",
-    themeDefault: "System", themeLight: "Light", themeDark: "Dark", home: "Home", problems: "Puzzles",
+    themeDefault: "System", themeLight: "Light", themeDark: "Dark", home: "Home", mentalPuzzles: "Puzzles", programmingPuzzles: "Programming puzzles", about: "About",
     homeEyebrow: "LEARN BY SOLVING", heroLineOne: "Think through the problem.", heroLineTwo: "Code the solution.",
     introText: "A place to solve puzzles with Python. Choose a topic, then compare your reasoning with an explained solution.",
     exploreProblems: "Explore puzzles", heroIllustration: "Example of a Python problem", researchNote: "WORKING NOTES", question: "THE QUESTION", howItWorks: "How it works",
     stepChooseTitle: "Choose", stepChooseText: "A topic that interests you.", stepSolveTitle: "Solve", stepSolveText: "Write and test your own solution.", stepLearnTitle: "Learn", stepLearnText: "Review the reasoning and code.",
-    challengeEyebrow: "YOUR TURN", challengeTitle: "The puzzle library", challengeCaption: "Choose a category and browse its Python puzzles.",
+    challengeEyebrow: "YOUR TURN", mentalLibraryTitle: "Puzzles to solve without code", programmingLibraryTitle: "Programming puzzles", mentalLibraryCaption: "Choose a category and solve each problem mentally or on paper.", programmingLibraryCaption: "Choose a category and solve each problem with Python.",
+    aboutEyebrow: "ABOUT THIS PROJECT", aboutTitle: "Puzzles for everyone.", aboutText: "This site brings together problems to think through, learn from, and share Python solutions to. Some puzzles can be solved mentally or on paper; others invite you to write code. The creator selects and publishes the problems, hints, and answers. AI helped build the website, but it does not generate puzzles or solutions for visitors.", aboutSignoff: "A place to share and learn, open to every skill level.",
     problemType: "Category", allCategories: "All categories", problemNumber: "Number in category", goToProblem: "Go", chooseByName: "Choose by title", randomProblem: "Random puzzle", numberRange: "Enter a number from 1 to {total}.",
     modulesLabel: "Python modules:", noModules: "No modules required", importModules: "Import:", difficultyLabel: "Difficulty", difficultyFilter: "Difficulty level", allDifficulties: "All levels",
     difficultyThresholds: ["Very easy (≤ 10)", "Easy (10 < score ≤ 20)", "Fairly easy (20 < score ≤ 30)", "Moderate (30 < score ≤ 40)", "Intermediate (40 < score ≤ 50)", "Somewhat difficult (50 < score ≤ 60)", "Difficult (60 < score ≤ 70)", "Very difficult (70 < score ≤ 80)", "Expert (80 < score ≤ 90)", "Master (90 < score ≤ 100)"],
@@ -53,6 +55,7 @@ const hintButton = getElement("#hint-button");
 const solutionButton = getElement("#solution-button");
 const codeButton = getElement("#code-button");
 let selectedLanguage = readPreference("puzzle-language") || (navigator.language.toLowerCase().startsWith("en") ? "en" : "fr");
+let selectedMode = "programming";
 let selectedCategory = "all";
 let selectedDifficultyLevel = null;
 let selectedPuzzleIndex = 0;
@@ -80,7 +83,8 @@ function setDisclosure(button, panel, isExpanded) {
 
 function getCategoryPuzzles() {
   const categoryPuzzles = puzzleList.filter((puzzle) =>
-    selectedCategory === "all" || puzzle.category === selectedCategory);
+    puzzle.mode === selectedMode
+    && (selectedCategory === "all" || puzzle.category === selectedCategory));
   if (selectedDifficultyLevel === null) return categoryPuzzles;
 
   const lowerBound = selectedDifficultyLevel - 10;
@@ -110,7 +114,7 @@ function renderDifficultyFilter() {
 function renderCategoryFilters() {
   const localizedText = translations[selectedLanguage];
   const availableCategoryIds = Object.keys(puzzleCategories).filter((categoryId) =>
-    puzzleList.some((puzzle) => puzzle.category === categoryId));
+    puzzleList.some((puzzle) => puzzle.mode === selectedMode && puzzle.category === categoryId));
   const categoryOptions = [
     { id: "all", label: localizedText.allCategories },
     ...availableCategoryIds.map((categoryId) => ({
@@ -162,6 +166,7 @@ function renderCurrentPuzzle() {
   if (!currentPuzzle) {
     getElement("#challenge-layout").hidden = true;
     getElement("#empty-state").hidden = false;
+    codeButton.hidden = selectedMode !== "programming";
     renderProblemTitleSelect(categoryPuzzles);
     return;
   }
@@ -179,6 +184,7 @@ function renderCurrentPuzzle() {
   getElement("#hint-text").textContent = localizedPuzzle.goal;
   getElement("#solution-text").textContent = puzzleResults[currentPuzzle.fr.title][selectedLanguage];
   getElement("#solution-code").textContent = localizedPuzzle.code;
+  codeButton.hidden = selectedMode !== "programming";
 
   const sourceLink = getElement("#challenge-source");
   sourceLink.textContent = currentPuzzle.source[selectedLanguage] || currentPuzzle.source.fr;
@@ -215,11 +221,23 @@ function applyTranslations() {
   renderDifficultyFilter();
   renderCategoryFilters();
   renderCurrentPuzzle();
+  renderLibraryHeading();
 }
 
 function showView(viewName) {
+  if (viewName === "mental" || viewName === "programming") {
+    selectedMode = viewName;
+    selectedCategory = "all";
+    selectedDifficultyLevel = null;
+    selectedPuzzleIndex = 0;
+    renderDifficultyFilter();
+    renderCategoryFilters();
+    renderCurrentPuzzle();
+    renderLibraryHeading();
+  }
+  const sectionName = viewName === "mental" || viewName === "programming" ? "puzzles" : viewName;
   document.querySelectorAll("[data-view-section]").forEach((section) => {
-    section.hidden = section.dataset.viewSection !== viewName;
+    section.hidden = section.dataset.viewSection !== sectionName;
   });
   document.querySelectorAll("[data-view]").forEach((button) => {
     const isActive = button.dataset.view === viewName;
@@ -230,6 +248,13 @@ function showView(viewName) {
     }
   });
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderLibraryHeading() {
+  const localizedText = translations[selectedLanguage];
+  const isMentalMode = selectedMode === "mental";
+  getElement("#section-title").textContent = localizedText[isMentalMode ? "mentalLibraryTitle" : "programmingLibraryTitle"];
+  getElement("#section-caption").textContent = localizedText[isMentalMode ? "mentalLibraryCaption" : "programmingLibraryCaption"];
 }
 
 function goToPuzzleNumber() {
@@ -264,14 +289,16 @@ problemTitleSelect.addEventListener("change", () => {
   renderCurrentPuzzle();
 });
 getElement("#random-puzzle").addEventListener("click", () => {
-  const randomPuzzle = puzzleList[Math.floor(Math.random() * puzzleList.length)];
+  const modePuzzles = puzzleList.filter((puzzle) => puzzle.mode === selectedMode);
+  const randomPuzzle = modePuzzles[Math.floor(Math.random() * modePuzzles.length)];
+  if (!randomPuzzle) return;
   selectedDifficultyLevel = null;
   selectedCategory = randomPuzzle.category;
   selectedPuzzleIndex = getCategoryPuzzles().indexOf(randomPuzzle);
   renderDifficultyFilter();
   renderCategoryFilters();
   renderCurrentPuzzle();
-  showView("problems");
+  showView(selectedMode);
 });
 getElement("#previous-button").addEventListener("click", () => {
   selectedPuzzleIndex -= 1;

@@ -22,7 +22,9 @@
     </a>
     <nav class="main-nav" aria-label="Navigation principale" data-i18n-aria="mainNavigation">
       <button class="nav-link is-active" type="button" data-view="home" data-i18n="home">Accueil</button>
-      <button class="nav-link" type="button" data-view="problems" data-i18n="problems">Énigmes</button>
+      <button class="nav-link" type="button" data-view="mental" data-i18n="mentalPuzzles">Énigme</button>
+      <button class="nav-link" type="button" data-view="programming" data-i18n="programmingPuzzles">Énigme programmation</button>
+      <button class="nav-link" type="button" data-view="about" data-i18n="about">À propos</button>
     </nav>
     <div class="preferences" aria-label="Préférences d'affichage" data-i18n-aria="preferences">
       <label class="preference-control"><span class="preference-icon" aria-hidden="true">◐</span>
@@ -41,7 +43,7 @@
         <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="homeEyebrow">APPRENDRE EN RÉSOLVANT</span></p>
         <h1 id="intro-title"><span data-i18n="heroLineOne">Pensez le problème.</span><br><span data-i18n="heroLineTwo">Codez la solution.</span></h1>
         <p class="intro-text" data-i18n="introText">Un terrain de jeu pour résoudre des énigmes avec Python. Choisissez un thème, puis comparez votre raisonnement à une solution expliquée.</p>
-        <button class="text-link" type="button" data-view="problems"><span data-i18n="exploreProblems">Explorer les énigmes</span><span aria-hidden="true">→</span></button>
+        <button class="text-link" type="button" data-view="programming"><span data-i18n="exploreProblems">Explorer les énigmes</span><span aria-hidden="true">→</span></button>
       </div>
       <div class="math-illustration" role="img" aria-label="Exemple de problème en Python" data-i18n-aria="heroIllustration">
         <div class="illustration-topline"><span data-i18n="researchNote">CARNET DE RECHERCHE</span><span>PY / 01</span></div>
@@ -56,11 +58,11 @@
       </div>
     </section>
 
-    <section class="challenge-section" id="problemes" data-view-section="problems" hidden aria-labelledby="section-title">
+    <section class="challenge-section" id="problemes" data-view-section="puzzles" hidden aria-labelledby="section-title">
       <div class="section-heading"><div>
         <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="challengeEyebrow">À VOUS DE JOUER</span></p>
-        <h1 id="section-title" data-i18n="challengeTitle">La bibliothèque d'énigmes</h1>
-      </div><p class="section-caption" data-i18n="challengeCaption">Choisissez une catégorie et parcourez ses énigmes Python.</p></div>
+        <h1 id="section-title" data-i18n="programmingLibraryTitle">Énigmes de programmation</h1>
+      </div><p class="section-caption" id="section-caption">Choisissez une catégorie et résolvez les problèmes en Python.</p></div>
       <div class="filter-panel">
         <fieldset class="filter-group"><legend data-i18n="problemType">Catégorie</legend><div class="segmented-control" id="category-filters"></div></fieldset>
         <div class="problem-tools">
@@ -98,6 +100,13 @@
           </ol><div class="note-footer"><span class="note-star" aria-hidden="true">✳</span><span data-i18n="mistakeIsClue">Une erreur est une piste.</span></div>
         </aside>
       </div>
+    </section>
+
+    <section class="about-section" id="a-propos" data-view-section="about" hidden aria-labelledby="about-title">
+      <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="aboutEyebrow">À PROPOS DU PROJET</span></p>
+      <h1 id="about-title" data-i18n="aboutTitle">Des énigmes accessibles à tous.</h1>
+      <p class="about-copy" data-i18n="aboutText">Ce site rassemble des problèmes pour réfléchir, apprendre et partager des solutions Python. Certaines énigmes se résolvent de tête ou sur papier; d’autres invitent à programmer. Les énoncés, indices et réponses sont choisis et publiés par le créateur. L’IA a aidé à construire le site, mais elle ne génère pas les énigmes ni leurs solutions pour les visiteurs.</p>
+      <p class="about-signoff" data-i18n="aboutSignoff">Un espace de partage et d’apprentissage, ouvert à tous les niveaux.</p>
     </section>
   </main>
   <footer class="site-footer"><a class="footer-brand" href="#accueil" data-view="home"><span class="footer-mark">{py}</span><span data-i18n="siteName">Atelier Énigmes Python</span></a><p data-i18n="footerLine">Un problème à la fois. Une ligne de code à la fois.</p><button class="back-to-top" type="button" data-view="home" data-i18n="backHome">Retour à l'accueil ↑</button></footer>
